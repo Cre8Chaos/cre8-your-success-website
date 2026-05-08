@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cre8 Your Success — Automation Agency for Operators</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="home-components.jsx"></script>
+
+  <template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lm-orange" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FF8A33"/>
+          <stop offset="100%" stop-color="#E55A00"/>
+        </linearGradient>
+        <linearGradient id="lm-blue" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3B8AFF"/>
+          <stop offset="100%" stop-color="#0052CC"/>
+        </linearGradient>
+      </defs>
+      <!-- Stylized C8 infinity mark, ~30% padded -->
+      <g transform="translate(360 240) scale(4.8)" fill="none" stroke-width="14" stroke-linecap="round">
+        <!-- left C -->
+        <path d="M62 20 A40 40 0 1 0 62 100" stroke="url(#lm-orange)"/>
+        <!-- arrow tip on left C -->
+        <path d="M55 14 L70 20 L62 32" stroke="url(#lm-orange)" stroke-linejoin="round"/>
+        <!-- right 8 / loop -->
+        <path d="M62 60 C 110 30, 130 90, 100 60 C 70 30, 110 90, 62 60" stroke="url(#lm-blue)"/>
+      </g>
+      <text x="600" y="660" text-anchor="middle" font-family="Orbitron, sans-serif" font-weight="900" font-size="64" letter-spacing="6" fill="#FFFFFF">CRE8 YOUR SUCCESS</text>
+      <text x="600" y="710" text-anchor="middle" font-family="monospace" font-size="22" letter-spacing="8" fill="#FF6600">AUTOMATE • SCALE • SUCCEED</text>
+    </svg>
+  </template>
+
+  <script>
+    // Force-mute every video element, always.
+    (function () {
+      function muteAll(){
+        document.querySelectorAll('video').forEach(v => {
+          v.muted = true;
+          v.volume = 0;
+          v.defaultMuted = true;
+        });
+      }
+      muteAll();
+      document.addEventListener('DOMContentLoaded', muteAll);
+      window.addEventListener('load', muteAll);
+      // Also re-apply when new videos are added (React mount)
+      const mo = new MutationObserver(muteAll);
+      document.addEventListener('DOMContentLoaded', () => mo.observe(document.body, {childList: true, subtree: true}));
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "headline": "outcome",
+      "accentMix": "both"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [tweaks, setTweaks] = useTweaks(TWEAK_DEFAULTS);
+
+      return (
+        <>
+          <Nav />
+          <Hero variant={tweaks.headline} />
+          <BrandBar />
+          <HowItWorks />
+          <Features />
+          <Industries />
+          <CtaBand />
+          <Footer />
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection title="Hero headline">
+              <TweakRadio
+                value={tweaks.headline}
+                onChange={(v) => setTweaks({ headline: v })}
+                options={[
+                  { value: 'outcome', label: 'Win the lead before your competitor responds.' },
+                  { value: 'product', label: 'The AI agent that never misses a call.' },
+                  { value: 'trust',   label: 'Automate the work that slows you down.' },
+                ]}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+name: Deploy + Health Check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Netlify
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Netlify
+        id: deploy
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: '.'
+          production-branch: main
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions — ${{ github.sha }}"
+          netlify-config-path: ./netlify.toml
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ded9959c-8999-484f-b6c0-80e195671056
+
+      - name: Notify Slack — deploy success
+        if: success()
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          channel-id: ${{ secrets.SLACK_DEPLOY_CHANNEL_ID }}
+          slack-message: "✅ *cre8yoursuccess.com deployed* — `${{ github.sha }}` by ${{ github.actor }}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+      - name: Notify Slack — deploy failed
+        if: failure()
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          channel-id: ${{ secrets.SLACK_DEPLOY_CHANNEL_ID }}
+          slack-message: "🔴 *DEPLOY FAILED* — cre8yoursuccess.com — `${{ github.sha }}` by ${{ github.actor }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+  health-check:
+    name: Post-Deploy Health Check
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: needs.deploy.result == 'success'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Wait for Netlify propagation
+        run: sleep 15
+
+      - name: Run health checks
+        run: bash scripts/health-check.sh
+        env:
+          SITE_URL: https://cre8yoursuccess.com
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_ALERT_CHANNEL_ID: ${{ secrets.SLACK_ALERT_CHANNEL_ID }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+
+      - name: Notify Slack — health check passed
+        if: success()
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          channel-id: ${{ secrets.SLACK_ALERT_CHANNEL_ID }}
+          slack-message: "🟢 *Health check passed* — cre8yoursuccess.com is live, all pages responding."
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

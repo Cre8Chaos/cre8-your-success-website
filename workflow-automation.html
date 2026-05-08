@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workflow Automation — Cre8 Your Success</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="subpages.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="components.jsx"></script>
+
+  <script>
+    // Force-mute every video element, always.
+    (function () {
+      function muteAll(){
+        document.querySelectorAll('video').forEach(v => {
+          v.muted = true;
+          v.volume = 0;
+          v.defaultMuted = true;
+        });
+      }
+      muteAll();
+      document.addEventListener('DOMContentLoaded', muteAll);
+      window.addEventListener('load', muteAll);
+      // Also re-apply when new videos are added (React mount)
+      const mo = new MutationObserver(muteAll);
+      document.addEventListener('DOMContentLoaded', () => mo.observe(document.body, {childList: true, subtree: true}));
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function WorkflowPage() {
+      return (
+        <>
+          <Nav />
+
+          <section className="sp-hero">
+            <div className="sp-hero-bg"></div>
+            <div className="sp-hero-grid"></div>
+            <div className="sp-hero-inner" style={{gridTemplateColumns:'1fr', textAlign:'center', maxWidth:880}}>
+              <div>
+                <div className="sp-crumb" style={{justifyContent:'center'}}>
+                  <a href="Cre8 Your Success.html">Home</a>
+                  <span className="sep">/</span>
+                  <span>Services</span>
+                  <span className="sep">/</span>
+                  <span className="here">Workflow Automation</span>
+                </div>
+                <h1 className="sp-title">
+                  Automate the work<br/>
+                  that <span className="accent-o">slows you</span> down.
+                </h1>
+                <p className="sp-sub" style={{marginLeft:'auto', marginRight:'auto'}}>If your team copy-pastes between tools, chases follow-ups, or forgets handoffs — that's automation work. We connect your systems and ship custom workflows that run themselves, so your team can focus on actual customer work.</p>
+                <div className="sp-cta" style={{justifyContent:'center'}}>
+                  <a href="Cre8 Your Success.html#cta" className="btn-primary">
+                    Automate Your Process
+                    <svg className="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </a>
+                  <a href="Cre8 Your Success.html#cta" className="btn-ghost">
+                    Book a Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section style={{padding:'0 2rem 80px', background:'var(--black)'}}>
+            <div className="sp-hero-video">
+              <video autoPlay loop muted playsInline>
+                <source src="assets/workflow.mp4" type="video/mp4" />
+              </video>
+              <span className="hud-chip"><span className="live-dot"></span>LIVE · WORKFLOW ENGINE</span>
+            </div>
+          </section>
+
+          <div className="spec-strip">
+            <div className="spec-strip-inner">
+              <div className="spec"><div className="v">20<span className="unit">+</span></div><div className="l">Hrs/Wk Saved</div></div>
+              <div className="spec"><div className="v">0</div><div className="l">Manual Handoffs</div></div>
+              <div className="spec"><div className="v">100<span className="unit">%</span></div><div className="l">Tasks Tracked</div></div>
+              <div className="spec"><div className="v">24<span className="unit">/7</span></div><div className="l">Always Running</div></div>
+            </div>
+          </div>
+
+          {/* PROBLEM */}
+          <section className="section section-darker">
+            <div className="container">
+              <div className="eyebrow">The problem</div>
+              <h2 className="section-title">Your team is doing<br/>work software should do.</h2>
+              <p className="section-sub">As you grow, the operational tax piles up. Every new customer means more copy-paste, more follow-up reminders, more dropped balls. You don't need more people — you need fewer manual loops.</p>
+              <div className="pain-grid">
+                <div className="pain-card">
+                  <div className="label">Manual follow-ups</div>
+                  <h4>Reminders, every single day</h4>
+                  <p>Quote sent — did they read it? Job done — did we ask for the review? Invoice late — has anyone followed up? Your team can't track it all.</p>
+                </div>
+                <div className="pain-card">
+                  <div className="label">Missed tasks</div>
+                  <h4>Things fall through the cracks</h4>
+                  <p>Sticky notes. Group texts. Mental notes. The bigger you get, the more handoffs break — and customers feel it.</p>
+                </div>
+                <div className="pain-card">
+                  <div className="label">Disorganized processes</div>
+                  <h4>Tools that don't talk to each other</h4>
+                  <p>CRM, scheduler, invoicing, review platform — none connected. Your team becomes the integration layer, doing it all by hand.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SOLUTION */}
+          <section className="section section-dark">
+            <div className="container">
+              <div className="eyebrow">The solution</div>
+              <h2 className="section-title">Custom automations<br/>across the tools you use.</h2>
+              <p className="section-sub">We don't sell you a SaaS. We build workflows tailored to your business, deployed into your stack — and we maintain them.</p>
+
+              <div className="capabilities">
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16v12H4z"/><path d="M8 10v4M12 10v4M16 10v4"/></svg></div>
+                  <div><h4>Quote-to-cash</h4><p>Lead booked → quote drafted → sent → followed up → signed → invoiced — all triggered automatically off real events in your CRM.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+                  <div><h4>Job completion flows</h4><p>Job marked done → photos uploaded → invoice sent → review request texted → CRM tagged. Ten manual steps become zero.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 5h18v14H3z"/><path d="M3 5l9 8 9-8"/></svg></div>
+                  <div><h4>Customer onboarding</h4><p>New client → welcome email → intake form → contract → kickoff scheduled. They feel taken care of, you didn't lift a finger.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+                  <div><h4>Reminders &amp; nudges</h4><p>Appointment tomorrow? Auto-text. Quote unread for 48 hours? Auto-nudge. Review never left? Auto-ask. Without anyone owning it.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l4-4 3 3 7-9"/><path d="M14 7h3v3"/></svg></div>
+                  <div><h4>Reporting &amp; ops dashboards</h4><p>Weekly recap of bookings, revenue, conversion, and missed handoffs — auto-generated and dropped in your inbox or Slack.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19h16M4 5h16M7 5v14M17 5v14M10 9h4M10 13h4"/></svg></div>
+                  <div><h4>Cross-tool sync</h4><p>CRM ↔ scheduler ↔ invoicing ↔ phone system. One source of truth, no double-entry, no "did you update the spreadsheet" texts.</p></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* HOW IT WORKS */}
+          <section className="section section-darker" id="how">
+            <div className="container">
+              <div className="eyebrow">How it works</div>
+              <h2 className="section-title">Trigger → Action → Follow-up.<br/>Repeated, reliably.</h2>
+              <div className="process-row" style={{gridTemplateColumns:'repeat(3,1fr)'}}>
+                <div className="process-step">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 2L4 12h5l-1 6 7-10h-5l1-6z"/></svg></div>
+                  <span className="pn">STEP 01</span>
+                  <h4>Trigger</h4>
+                  <p>An event happens — a form submitted, a call booked, an invoice paid, a job marked done. The workflow listens and fires.</p>
+                </div>
+                <div className="process-step blue">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg></div>
+                  <span className="pn">STEP 02</span>
+                  <h4>Action</h4>
+                  <p>Across your stack — send the email, update the CRM, generate the invoice, notify the team. Whatever your team would have done manually.</p>
+                </div>
+                <div className="process-step">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 10h10M9 6l4 4-4 4"/><path d="M16 5v10"/></svg></div>
+                  <span className="pn">STEP 03</span>
+                  <h4>Follow-up</h4>
+                  <p>If the customer doesn't respond, the workflow nudges. If something breaks, you get an alert. Nothing lives in someone's head.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* OUTCOMES */}
+          <section className="section section-dark">
+            <div className="container">
+              <div className="eyebrow">Outcomes</div>
+              <h2 className="section-title">Time saved.<br/>Efficiency unlocked.</h2>
+              <div className="outcome-grid">
+                <div className="outcome-card">
+                  <div className="label">Time saved</div>
+                  <h4>Get hours back, every week</h4>
+                  <p>Operators we work with claw back 20+ hours a week of manual ops work — that's a full headcount, without hiring one.</p>
+                  <div className="big">20<span className="unit">+ hrs/wk</span></div>
+                </div>
+                <div className="outcome-card">
+                  <div className="label">Increased efficiency</div>
+                  <h4>Same team. More throughput.</h4>
+                  <p>Without adding people, the same team handles materially more customers — because the operational tax is gone.</p>
+                  <div className="big">+60<span className="unit">%</span></div>
+                </div>
+                <div className="outcome-card">
+                  <div className="label">Better customer experience</div>
+                  <h4>Faster, more polished, on-brand</h4>
+                  <p>Customers get instant confirmations, on-time reminders, and follow-ups that feel human — without one slipping through the cracks.</p>
+                  <div className="big">5★<span style={{fontSize:13, color:'rgba(255,255,255,.5)', fontWeight:500, marginLeft:8}}>review uplift</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* INDUSTRIES SERVED */}
+          <Industries />
+
+          {/* PRICING REPLACEMENT */}
+          <section className="section section-dark">
+            <div className="container" style={{textAlign:'center', maxWidth:780, margin:'0 auto'}}>
+              <div className="eyebrow" style={{justifyContent:'center'}}>Pricing</div>
+              <h2 className="section-title">Custom / needs-based<br/>solutions.</h2>
+              <p className="section-sub" style={{marginLeft:'auto', marginRight:'auto'}}>Workflow automation projects are scoped to your tools, your team's hours, and the loops that hurt the most. Book a consult to get a tailored plan with clear ROI.</p>
+              <div style={{marginTop:32, display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap'}}>
+                <a href="Cre8 Your Success.html#cta" className="btn-primary">
+                  Book a Consult to Get a Tailored Plan
+                  <svg className="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <CtaBand />
+          <Footer />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<WorkflowPage />);
+  </script>
+</body>
+</html>

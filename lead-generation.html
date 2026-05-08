@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lead Generation — Cre8 Your Success</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="subpages.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="components.jsx"></script>
+
+  <script>
+    // Force-mute every video element, always.
+    (function () {
+      function muteAll(){
+        document.querySelectorAll('video').forEach(v => {
+          v.muted = true;
+          v.volume = 0;
+          v.defaultMuted = true;
+        });
+      }
+      muteAll();
+      document.addEventListener('DOMContentLoaded', muteAll);
+      window.addEventListener('load', muteAll);
+      // Also re-apply when new videos are added (React mount)
+      const mo = new MutationObserver(muteAll);
+      document.addEventListener('DOMContentLoaded', () => mo.observe(document.body, {childList: true, subtree: true}));
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function LeadGenPage() {
+      return (
+        <>
+          <Nav />
+
+          <section className="sp-hero">
+            <div className="sp-hero-bg"></div>
+            <div className="sp-hero-grid"></div>
+            <div className="sp-hero-inner" style={{gridTemplateColumns:'1fr', textAlign:'center', maxWidth:880}}>
+              <div>
+                <div className="sp-crumb" style={{justifyContent:'center'}}>
+                  <a href="Cre8 Your Success.html">Home</a>
+                  <span className="sep">/</span>
+                  <span>Services</span>
+                  <span className="sep">/</span>
+                  <span className="here">Lead Generation</span>
+                </div>
+                <h1 className="sp-title">
+                  Get more <span className="accent-o">qualified leads</span><br/>
+                  without chasing them.
+                </h1>
+                <p className="sp-sub" style={{marginLeft:'auto', marginRight:'auto'}}>An automated lead system that captures, qualifies, routes, and follows up — instantly. Stop wasting ad spend on leads that ghost. Every inbound gets a response in under a minute, every time.</p>
+                <div className="sp-cta" style={{justifyContent:'center'}}>
+                  <a href="Cre8 Your Success.html#cta" className="btn-primary">
+                    See How It Works
+                    <svg className="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </a>
+                  <a href="Cre8 Your Success.html#cta" className="btn-ghost">
+                    Book a Consult
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section style={{padding:'0 2rem 80px', background:'var(--black)'}}>
+            <div className="sp-hero-video">
+              <video autoPlay loop muted playsInline>
+                <source src="assets/lead-gen.mp4" type="video/mp4" />
+              </video>
+              <span className="hud-chip"><span className="live-dot"></span>LIVE · LEAD CAPTURE PIPELINE</span>
+            </div>
+          </section>
+
+          <div className="spec-strip">
+            <div className="spec-strip-inner">
+              <div className="spec"><div className="v">&lt;30<span className="unit">s</span></div><div className="l">Response Time</div></div>
+              <div className="spec"><div className="v">8<span className="unit">x</span></div><div className="l">Conversion Lift</div></div>
+              <div className="spec"><div className="v">100<span className="unit">%</span></div><div className="l">Leads Qualified</div></div>
+              <div className="spec"><div className="v">24<span className="unit">/7</span></div><div className="l">Always-On</div></div>
+            </div>
+          </div>
+
+          {/* PROBLEM */}
+          <section className="section section-darker">
+            <div className="container">
+              <div className="eyebrow">The problem</div>
+              <h2 className="section-title">Your lead pipeline<br/>is leaking money.</h2>
+              <p className="section-sub">Most local service businesses lose more revenue between "lead in" and "lead booked" than anywhere else in their funnel.</p>
+              <div className="pain-grid">
+                <div className="pain-card">
+                  <div className="label">Inconsistent leads</div>
+                  <h4>Feast or famine</h4>
+                  <p>Some weeks the phone rings off the hook, some weeks it's silent. Without a system, you're at the mercy of referrals and luck.</p>
+                </div>
+                <div className="pain-card">
+                  <div className="label">Wasted ad spend</div>
+                  <h4>Paying for ghosts</h4>
+                  <p>You spend on Google and Meta — but if leads aren't responded to in minutes, half of them go cold before you can call back.</p>
+                  <div className="stat">−80%<span style={{fontSize:13, color:'rgba(255,255,255,.5)', fontWeight:500}}> conversion after 5 minutes</span></div>
+                </div>
+                <div className="pain-card">
+                  <div className="label">Poor follow-up</div>
+                  <h4>The "we'll call you back" black hole</h4>
+                  <p>Web forms, missed calls, and DM inquiries pile up. Your team can't follow up fast enough, and good leads turn cold.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* SOLUTION */}
+          <section className="section section-dark">
+            <div className="container">
+              <div className="eyebrow">The solution</div>
+              <h2 className="section-title">Automated capture.<br/>Instant qualification.</h2>
+              <p className="section-sub">Every inbound channel — calls, forms, ads, social DMs — feeds into one automated system that captures, qualifies, and routes leads while they're still hot.</p>
+
+              <div className="capabilities">
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 8h.01M8 18h.01"/></svg></div>
+                  <div><h4>Multi-channel capture</h4><p>Web forms, Google Ads, Meta lead ads, missed calls, and DMs all funnel into one pipeline. Nothing falls through the cracks.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.5 8.5 0 11-17 0V8a3 3 0 016 0v4M9 12V8M15 12V8a3 3 0 016 0v3.5"/></svg></div>
+                  <div><h4>Instant qualification</h4><p>AI asks the right questions, scores the lead, and tags it by urgency, budget, and service type — before a human touches it.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+                  <div><h4>Smart routing</h4><p>Hot leads ring your phone in real time. Warm leads go into nurture. Cold leads filter out — so your team only talks to the ones worth their time.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 5h18v14H3z"/><path d="M3 5l9 8 9-8"/></svg></div>
+                  <div><h4>30-second response</h4><p>Auto-text or auto-call the lead within 30 seconds of submission. The first business to reply wins — that's now you.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+                  <div><h4>Multi-touch nurture</h4><p>Leads that don't book on the first touch get a sequence — SMS, email, voice — until they convert or opt out.</p></div>
+                </div>
+                <div className="cap">
+                  <div className="cap-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19h16M4 5h16M7 5v14M17 5v14"/></svg></div>
+                  <div><h4>CRM + ad attribution</h4><p>Every lead synced with source, campaign, and conversion. You finally see which ads are making money — and which are wasting it.</p></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* HOW IT WORKS */}
+          <section className="section section-darker" id="how">
+            <div className="container">
+              <div className="eyebrow">How it works</div>
+              <h2 className="section-title">Four steps.<br/>Capture → Qualify → Route → Follow-up.</h2>
+              <div className="process-row">
+                <div className="process-step">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h14v4H3zM3 12h14v4H3z"/></svg></div>
+                  <span className="pn">STEP 01</span>
+                  <h4>Capture</h4>
+                  <p>Every channel — forms, ads, calls, DMs — funnels into one pipeline. No more chasing leads across five inboxes.</p>
+                </div>
+                <div className="process-step blue">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="10" cy="10" r="7"/><path d="M7 10l2 2 4-5"/></svg></div>
+                  <span className="pn">STEP 02</span>
+                  <h4>Qualify</h4>
+                  <p>AI asks the right questions and scores the lead — service type, urgency, budget, location — instantly.</p>
+                </div>
+                <div className="process-step">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 10h14M11 5l6 5-6 5"/></svg></div>
+                  <span className="pn">STEP 03</span>
+                  <h4>Route</h4>
+                  <p>Hot leads go straight to your sales team. Warm leads enter nurture. Cold leads filter out automatically.</p>
+                </div>
+                <div className="process-step blue">
+                  <div className="pi"><svg viewBox="0 0 20 20" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 10h10M5 10l3-3M5 10l3 3"/><path d="M15 4v12"/></svg></div>
+                  <span className="pn">STEP 04</span>
+                  <h4>Follow-up</h4>
+                  <p>SMS, email, and voice sequences run until the lead books or opts out. No more leads forgotten in a spreadsheet.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* OUTCOMES */}
+          <section className="section section-dark">
+            <div className="container">
+              <div className="eyebrow">Outcomes</div>
+              <h2 className="section-title">More booked appointments.<br/>Higher conversion rates.</h2>
+              <div className="outcome-grid">
+                <div className="outcome-card">
+                  <div className="label">Speed-to-lead</div>
+                  <h4>From minutes to seconds</h4>
+                  <p>Leads contacted in under 30 seconds — beating every competitor still relying on a callback queue.</p>
+                  <div className="big">&lt;30<span className="unit">s</span></div>
+                </div>
+                <div className="outcome-card">
+                  <div className="label">Booked appointments</div>
+                  <h4>Pipeline doubles</h4>
+                  <p>Same ad spend, twice the booked jobs. Conversion goes up because nothing slips through the cracks anymore.</p>
+                  <div className="big">2<span className="unit">×</span></div>
+                </div>
+                <div className="outcome-card">
+                  <div className="label">Cost per acquisition</div>
+                  <h4>Lower CAC, every channel</h4>
+                  <p>When you convert more of what you already pay for, your CAC drops without changing a single ad budget.</p>
+                  <div className="big">−45<span className="unit">%</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* INDUSTRIES SERVED */}
+          <Industries />
+
+          {/* PRICING REPLACEMENT */}
+          <section className="section section-dark">
+            <div className="container" style={{textAlign:'center', maxWidth:780, margin:'0 auto'}}>
+              <div className="eyebrow" style={{justifyContent:'center'}}>Pricing</div>
+              <h2 className="section-title">Custom / needs-based<br/>solutions.</h2>
+              <p className="section-sub" style={{marginLeft:'auto', marginRight:'auto'}}>We build around your channels, your CRM, and your goals. Book a consult to get a tailored plan with clear ROI projections — no generic tiers.</p>
+              <div style={{marginTop:32, display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap'}}>
+                <a href="Cre8 Your Success.html#cta" className="btn-primary">
+                  Book a Consult to Get a Tailored Plan
+                  <svg className="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <CtaBand />
+          <Footer />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<LeadGenPage />);
+  </script>
+</body>
+</html>
