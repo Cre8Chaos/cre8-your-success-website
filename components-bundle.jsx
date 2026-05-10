@@ -382,31 +382,11 @@ function Footer() {
             <li><a href="#">Custom Builds</a></li>
           </ul>
         </div>
-        <div className="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Case Studies</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div className="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Playbooks</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-          </ul>
-        </div>
       </div>
       <div className="footer-bottom">
         <span>© 2026 Cre8 Your Success. All systems operational.</span>
         <div className="socials">
-          <a href="#" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3.6 5.4h2.5v7.8H3.6V5.4zM4.9 2.2a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9zM7.7 5.4h2.4v1.1h.04c.3-.6 1.2-1.3 2.4-1.3 2.5 0 3 1.7 3 3.9v4h-2.5V9.5c0-1 0-2.2-1.3-2.2s-1.6 1-1.6 2.2v3.8H7.7V5.4z" /></svg></a>
-          <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M12.3 2h2.1l-4.6 5.3L15.3 14h-4.2L7.7 9.6 3.8 14H1.7l4.9-5.6L1 2h4.3l3 4 3.9-4zm-.7 10.5h1.2L4.5 3.3H3.2l8.4 9.2z" /></svg></a>
-          <a href="#" aria-label="YouTube"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M15.3 4.7a2 2 0 00-1.4-1.4C12.7 3 8 3 8 3s-4.7 0-5.9.3A2 2 0 00.7 4.7C.4 5.8.4 8 .4 8s0 2.2.3 3.3a2 2 0 001.4 1.4c1.2.3 5.9.3 5.9.3s4.7 0 5.9-.3a2 2 0 001.4-1.4c.3-1.1.3-3.3.3-3.3s0-2.2-.3-3.3zM6.4 10.2V5.8L10.3 8l-3.9 2.2z" /></svg></a>
+          <a href="https://www.linkedin.com/company/cre8-your-success-llc/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3.6 5.4h2.5v7.8H3.6V5.4zM4.9 2.2a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9zM7.7 5.4h2.4v1.1h.04c.3-.6 1.2-1.3 2.4-1.3 2.5 0 3 1.7 3 3.9v4h-2.5V9.5c0-1 0-2.2-1.3-2.2s-1.6 1-1.6 2.2v3.8H7.7V5.4z" /></svg></a>
         </div>
       </div>
     </footer>);
