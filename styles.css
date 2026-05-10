@@ -749,9 +749,9 @@ footer.site-footer {
 }
 .footer-grid {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px;
 }
-@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
 
 .footer-brand .footer-logo {
   font-family: var(--font-heading); font-size: 16px; font-weight: 900;
@@ -834,7 +834,8 @@ footer.site-footer {
     max-width: 160px;
     object-fit: contain;
   }
-  /* tighten CTA button */
+  /* hide secondary nav button, tighten primary CTA */
+  .nav-cta-secondary { display: none; }
   .nav-cta {
     padding: 8px 14px;
     font-size: 12px;
