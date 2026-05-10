@@ -62,6 +62,7 @@ function Nav() {
         </ul>
       </div>
       <div className="nav-right">
+        <a href="https://scholarpath.cre8yoursuccess.com" className="nav-cta-secondary" style={{color:'#1E90FF', borderColor:'#1E90FF'}}>✦ ScholarPath</a>
         <a href="https://calendly.com/michael-cre8yoursuccess/30min" target="_blank" rel="noopener" className="nav-cta">Book a Consult →</a>
       </div>
     </nav>);

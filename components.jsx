@@ -60,15 +60,12 @@ function Nav() {
           </li>
           <li className="nav-item"><a href="Cre8 Your Success.html#how">How it works</a></li>
           <li className="nav-item"><a href="Cre8 Your Success.html#features">Platform</a></li>
-          <li className="nav-item">
-            <a href="https://scholarpath.cre8yoursuccess.com" style={{ color: 'var(--orange)', fontWeight: 700 }}>
-              ✦ ScholarPath
-            </a>
-          </li>
         </ul>
       </div>
       <div className="nav-right">
         <a href="Cre8 Your Success.html#cta" className="nav-cta">Book a Consult →</a>
+        {/* TODO: replace with Products dropdown when Cre8YourLife launches */}
+        <a href="https://scholarpath.cre8yoursuccess.com" className="nav-cta-secondary" style={{color:'#1E90FF', borderColor:'#1E90FF'}}>✦ ScholarPath</a>
       </div>
     </nav>);
 
@@ -398,7 +395,7 @@ function Footer() {
           <div className="footer-tagline">
             Automate <span className="dot">●</span> Scale <span className="dot">●</span> Succeed
           </div>
-          <p>An automation agency for operators. We build the stack — voice, leads, and workflows — that keeps revenue moving while you sleep.</p>
+          <p>We design and deploy AI systems that handle the work — voice agents, lead capture, and automated workflows — so your business scales without adding headcount.</p>
         </div>
         <div className="footer-col">
           <h4>Services</h4>
