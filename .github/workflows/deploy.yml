@@ -30,6 +30,7 @@ jobs:
 
       - name: Notify Slack — deploy success
         if: success()
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1.26.0
         with:
           channel-id: ${{ secrets.SLACK_DEPLOY_CHANNEL_ID }}
@@ -39,6 +40,7 @@ jobs:
 
       - name: Notify Slack — deploy failed
         if: failure()
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1.26.0
         with:
           channel-id: ${{ secrets.SLACK_DEPLOY_CHANNEL_ID }}
@@ -71,6 +73,7 @@ jobs:
 
       - name: Notify Slack — health check passed
         if: success()
+        continue-on-error: true
         uses: slackapi/slack-github-action@v1.26.0
         with:
           channel-id: ${{ secrets.SLACK_ALERT_CHANNEL_ID }}
